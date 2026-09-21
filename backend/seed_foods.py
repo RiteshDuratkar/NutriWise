@@ -370,6 +370,18 @@ foods = [
         "sugar": 4.7,
         "fiber": 8.5,
     },
+        {
+        "name": "Samosa",
+        "category": "Indian Food",
+        "serving_size": 100,
+        "serving_unit": "g",
+        "calories": 262,
+        "protein": 5.0,
+        "carbohydrates": 32.0,
+        "fat": 13.0,
+        "sugar": 1.5,
+        "fiber": 2.0,
+    },
 ]
 
 
