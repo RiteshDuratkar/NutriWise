@@ -9,11 +9,11 @@ class FoodHistoryCreate(BaseModel):
     quantity: float
     meal_type: Optional[str] = None
 
-
 class FoodHistoryResponse(BaseModel):
     id: int
     user_id: int
     food_id: int
+    food_name: Optional[str] = None
     quantity: float
     meal_type: Optional[str] = None
 

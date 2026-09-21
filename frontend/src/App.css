@@ -182,3 +182,2725 @@
     border-right-color: var(--border);
   }
 }
+
+/* ================================
+   NUTRIWISE AUTH PAGES
+   Login + Create Account
+   ================================ */
+
+.login-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  background: #f6faf7;
+  overflow-y: auto;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 520px;
+  background: #ffffff;
+  border: 1px solid #1c1c1c5e;
+  border-radius: 24px;
+  padding: 36px;
+  box-sizing: border-box;
+  box-shadow: 0 18px 50px rgba(39, 83, 57, 0.10);
+}
+
+.login-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+  color: #245c3a;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.logo-icon {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  background: #eaf6ed;
+  color: #2f7d4a;
+}
+
+.login-heading {
+  margin-bottom: 28px;
+}
+
+.login-heading .eyebrow {
+  margin-bottom: 8px;
+}
+
+.login-heading h2 {
+  margin: 0 0 10px;
+  font-size: 28px;
+  line-height: 1.2;
+  color: #183b27;
+}
+
+.login-heading > p:last-child {
+  margin: 0;
+  color: #718078;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.login-field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.login-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #30463a;
+}
+
+.login-field input,
+.login-field select {
+  width: 100%;
+  height: 46px;
+  padding: 0 13px;
+  box-sizing: border-box;
+  border: 1px solid #1c1c1c5e;
+  border-radius: 11px;
+  background: #fbfdfb;
+  color: #24372c;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.login-field input::placeholder {
+  color: #9aa8a0;
+}
+
+.login-field input:focus,
+.login-field select:focus {
+  border-color: #5b9d70;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(91, 157, 112, 0.12);
+}
+
+.login-button {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.auth-switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 22px;
+  font-size: 13px;
+  color: #718078;
+}
+
+.auth-switch button {
+  border: none;
+  background: transparent;
+  padding: 0;
+  color: #2f7d4a;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.auth-switch button:hover {
+  text-decoration: underline;
+}
+
+.login-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid #edf2ee;
+  color: #8a9890;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* Create Account layout */
+.login-card:has(.login-form .login-field:nth-child(10)) {
+  max-width: 720px;
+}
+
+/* Two-column registration form */
+.login-card:has(.login-form .login-field:nth-child(10)) .login-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 18px;
+  row-gap: 17px;
+}
+
+.login-card:has(.login-form .login-field:nth-child(10)) .login-button {
+  grid-column: 1 / -1;
+}
+
+/* Keep the first three important account fields full width */
+.login-card:has(.login-form .login-field:nth-child(10))
+  .login-field:nth-child(1),
+.login-card:has(.login-form .login-field:nth-child(10))
+  .login-field:nth-child(2),
+.login-card:has(.login-form .login-field:nth-child(10))
+  .login-field:nth-child(3) {
+  grid-column: 1 / -1;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .login-page {
+    align-items: flex-start;
+    padding: 24px 14px;
+  }
+
+  .login-card {
+    padding: 26px 20px;
+    border-radius: 20px;
+  }
+
+  .login-heading h2 {
+    font-size: 24px;
+  }
+
+  .login-card:has(.login-form .login-field:nth-child(10)) .login-form {
+    grid-template-columns: 1fr;
+  }
+
+  .login-card:has(.login-form .login-field:nth-child(10))
+    .login-field:nth-child(1),
+  .login-card:has(.login-form .login-field:nth-child(10))
+    .login-field:nth-child(2),
+  .login-card:has(.login-form .login-field:nth-child(10))
+    .login-field:nth-child(3) {
+    grid-column: auto;
+  }
+
+  .login-card:has(.login-form .login-field:nth-child(10)) .login-button {
+    grid-column: auto;
+  }
+}
+
+/* ================================
+   NUTRIWISE PREFERENCES
+   ================================ */
+
+.page-content {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.page-intro {
+  margin-bottom: 28px;
+}
+
+.page-intro h2 {
+  margin: 6px 0 8px;
+  font-size: 30px;
+  line-height: 1.2;
+  color: #183b27;
+}
+
+.page-intro > p:last-child {
+  margin: 0;
+  color: #718078;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.page-content > .card {
+  margin-bottom: 18px;
+  padding: 24px;
+  border-radius: 18px;
+  box-sizing: border-box;
+}
+
+.preference-row {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px 0;
+  border-top: 1px solid #edf2ee;
+  box-sizing: border-box;
+}
+
+.preference-row:first-of-type {
+  margin-top: 4px;
+}
+
+.preference-row > div {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.preference-row strong {
+  color: #263b2f;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.preference-row span {
+  color: #829087;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* Toggle */
+
+.toggle {
+  position: relative;
+  flex: 0 0 auto;
+  width: 48px;
+  height: 27px;
+  padding: 0;
+  border: none;
+  border-radius: 20px;
+  background: #d9e3dc;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.toggle span {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.toggle.active {
+  background: #4d9364;
+}
+
+.toggle.active span {
+  transform: translateX(21px);
+}
+
+/* Unit selector */
+
+.preference-row select {
+  flex: 0 0 150px;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid #1c1c1c5e;
+  border-radius: 10px;
+  background: #fbfdfb;
+  color: #30463a;
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+  cursor: pointer;
+}
+
+.preference-row select:focus {
+  border-color: #5b9d70;
+  box-shadow: 0 0 0 3px rgba(91, 157, 112, 0.12);
+}
+
+/* Save card */
+
+.preference-save-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.preference-save-card > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.preference-save-card strong {
+  color: #263b2f;
+  font-size: 14px;
+}
+
+.preference-save-card span {
+  color: #829087;
+  font-size: 13px;
+}
+
+.preference-save-card .primary-button {
+  flex: 0 0 auto;
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .page-content {
+    width: 100%;
+  }
+
+  .page-intro h2 {
+    font-size: 25px;
+  }
+
+  .page-content > .card {
+    padding: 20px;
+  }
+
+  .preference-row {
+    gap: 14px;
+  }
+
+  .preference-row > div {
+    flex: 1;
+  }
+
+  .preference-row select {
+    flex: 0 0 125px;
+  }
+
+  .preference-save-card {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .preference-save-card .primary-button {
+    width: 100%;
+  }
+}
+
+/* ================================
+   NUTRIWISE HEADER + USER MENU
+   ================================ */
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* Notification */
+
+.notification-button {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: #53645b;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.notification-button:hover {
+  background: #f1f6f2;
+  color: #245c3a;
+}
+
+.notification-dot {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4d9364;
+  border: 2px solid #ffffff;
+}
+
+/* User menu wrapper */
+
+.user-menu-wrapper {
+  position: relative;
+}
+
+/* Main user button */
+
+.user-menu {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 8px 5px 6px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: transparent;
+  color: #263b2f;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.user-menu:hover {
+  background: #f5f8f5;
+  border-color: #e6eee8;
+}
+
+/* Avatar */
+
+.avatar {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #e9bcae;
+  color: #3e4140;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* User name + subtitle */
+
+.user-info {
+  min-width: 125px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.user-info strong {
+  color: #303934;
+  font-size: 13px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.user-info span {
+  color: #89948e;
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+/* Dropdown */
+
+.user-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 1000;
+  width: 210px;
+  padding: 7px;
+  background: #ffffff;
+  border: 1px solid #e6eee8;
+  border-radius: 14px;
+  box-shadow: 0 14px 35px rgba(39, 83, 57, 0.13);
+}
+
+/* Dropdown buttons */
+
+.user-dropdown button {
+  width: 100%;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  color: #39473f;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 550;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.user-dropdown button:hover {
+  background: #f1f7f2;
+  color: #245c3a;
+}
+
+/* Logout */
+
+.user-dropdown button:last-child {
+  margin-top: 3px;
+  border-top: 1px solid #edf2ee;
+  border-radius: 0 0 9px 9px;
+  color: #6f7772;
+}
+
+.user-dropdown button:last-child:hover {
+  background: #faf5f5;
+  color: #a04f4f;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .header-right {
+    gap: 8px;
+  }
+
+  .user-info {
+    display: none;
+  }
+
+  .user-menu {
+    padding: 4px;
+  }
+
+  .user-dropdown {
+    right: 0;
+    width: 190px;
+  }
+}
+
+.profile-edit-card {
+  padding: 28px;
+}
+
+.profile-edit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.profile-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.profile-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.profile-field input,
+.profile-field select {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid #dfe5e1;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #1f2933;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.profile-field input:focus,
+.profile-field select:focus {
+  border-color: #78a98a;
+  box-shadow: 0 0 0 3px rgba(120, 169, 138, 0.12);
+}
+
+.profile-edit-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid #edf1ee;
+}
+
+@media (max-width: 700px) {
+  .profile-edit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-edit-actions {
+    flex-direction: column-reverse;
+  }
+}
+
+
+/* =========================
+   NOTIFICATION PANEL
+   ========================= */
+
+.notification-wrapper {
+  position: relative;
+}
+
+.notification-panel {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  width: 340px;
+  background: #ffffff;
+  border: 1px solid #e8eee9;
+  border-radius: 16px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.notification-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px;
+  border-bottom: 1px solid #edf1ee;
+}
+
+.notification-panel-header div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.notification-panel-header strong {
+  font-size: 15px;
+  color: #1f2a24;
+}
+
+.notification-panel-header span {
+  font-size: 12px;
+  color: #7b857f;
+}
+
+.notification-close {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  font-size: 20px;
+  color: #7b857f;
+  cursor: pointer;
+}
+
+.notification-close:hover {
+  background: #f1f5f2;
+}
+
+.notification-item {
+  display: flex;
+  gap: 12px;
+  padding: 15px 18px;
+  border-bottom: 1px solid #edf1ee;
+}
+
+.notification-icon {
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #edf7ef;
+  color: #4f8f61;
+  border-radius: 10px;
+}
+
+.notification-item > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.notification-item strong {
+  font-size: 13px;
+  color: #27332c;
+}
+
+.notification-item span {
+  font-size: 12px;
+  line-height: 1.45;
+  color: #7b857f;
+}
+
+.notification-empty {
+  padding: 14px 18px;
+  text-align: center;
+  font-size: 12px;
+  color: #7b857f;
+  background: #fafcfb;
+}
+
+.theme-button {
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 10px;
+  background: #f3f7f4;
+  cursor: pointer;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s ease;
+}
+
+.theme-button:hover {
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   NUTRIWISE — FINAL DARK THEME
+   Target: Minimal Charcoal / Premium SaaS
+   Light Theme is NOT modified.
+   ========================================================= */
+
+body.dark-theme {
+  --nw-dark-bg: #111312;
+  --nw-dark-sidebar: #0d0f0e;
+  --nw-dark-header: #121514;
+
+  --nw-dark-card: #181a19;
+  --nw-dark-card-2: #1b1e1c;
+  --nw-dark-card-3: #202320;
+
+  --nw-dark-border: #292d2b;
+  --nw-dark-border-soft: #222624;
+
+  --nw-dark-text: #f0f2f1;
+  --nw-dark-text-secondary: #c0c5c2;
+  --nw-dark-text-muted: #858b88;
+  --nw-dark-text-faint: #686e6b;
+
+  --nw-green: #6fa378;
+  --nw-green-soft: rgba(111, 163, 120, 0.12);
+
+  background: #111312;
+  color: var(--nw-dark-text);
+}
+
+
+/* =========================================================
+   PAGE / APPLICATION BACKGROUND
+   ========================================================= */
+
+body.dark-theme,
+body.dark-theme .app,
+body.dark-theme main {
+  background: #111312;
+  color: var(--nw-dark-text);
+}
+
+body.dark-theme .app {
+  background: #111312;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+body.dark-theme .sidebar {
+  background: #0d0f0e;
+  border-right: 1px solid #202321;
+  color: var(--nw-dark-text-secondary);
+}
+
+body.dark-theme .sidebar .nav-item {
+  background: transparent;
+  color: #858b88;
+}
+
+body.dark-theme .sidebar .nav-item:hover {
+  background: #171a18;
+  color: #d9ddda;
+}
+
+body.dark-theme .sidebar .nav-item.active {
+  background: #1a211c;
+  color: #edf1ee;
+}
+
+body.dark-theme .sidebar .nav-item.active svg {
+  color: var(--nw-green);
+}
+
+body.dark-theme .sidebar svg {
+  color: #777e7a;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+body.dark-theme .header {
+  background: #121514;
+  border-bottom: 1px solid #222624;
+  color: var(--nw-dark-text);
+}
+
+body.dark-theme .user-menu {
+  background: transparent;
+  color: var(--nw-dark-text);
+}
+
+body.dark-theme .user-menu:hover {
+  background: #181b19;
+}
+
+body.dark-theme .user-info strong {
+  color: #f0f2f1;
+}
+
+body.dark-theme .user-info span {
+  color: #858b88;
+}
+
+
+/* =========================================================
+   THEME TOGGLE / NOTIFICATION
+   ========================================================= */
+
+body.dark-theme .theme-button,
+body.dark-theme .notification-button {
+  background: #191c1a;
+  color: #c4c9c6;
+  border: 1px solid #292d2b;
+  box-shadow: none;
+}
+
+body.dark-theme .theme-button:hover,
+body.dark-theme .notification-button:hover {
+  background: #202421;
+  border-color: #343936;
+}
+
+body.dark-theme .theme-button {
+  color: #d6c77b;
+}
+
+body.dark-theme .notification-button {
+  color: #b8bfbb;
+}
+
+body.dark-theme .notification-dot {
+  background: var(--nw-green);
+}
+
+
+/* =========================================================
+   PAGE HEADINGS
+   ========================================================= */
+
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme h5 {
+  color: #f0f2f1;
+}
+
+body.dark-theme p {
+  color: var(--nw-dark-text-muted);
+}
+
+body.dark-theme .eyebrow {
+  color: #789d7f;
+}
+
+body.dark-theme .intro-text {
+  color: #858b88;
+}
+
+body.dark-theme strong {
+  color: #e9ecea;
+}
+
+
+/* =========================================================
+   GENERIC CARDS
+   ========================================================= */
+
+body.dark-theme .card,
+body.dark-theme .profile-card,
+body.dark-theme .settings-card,
+body.dark-theme .history-card,
+body.dark-theme .preference-save-card {
+  background: #181a19;
+  border: 1px solid var(--nw-dark-border-soft);
+  color: var(--nw-dark-text);
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.16);
+}
+
+
+/* =========================================================
+   NUTRITION STAT CARDS
+   ========================================================= */
+
+body.dark-theme .stat-card,
+body.dark-theme .nutrition-card {
+  background: #181a19;
+  border: 1px solid #272b29;
+  color: #f0f2f1;
+
+  box-shadow:
+    0 7px 22px rgba(0, 0, 0, 0.15);
+}
+
+body.dark-theme .stat-card:hover,
+body.dark-theme .nutrition-card:hover {
+  background: #1b1e1c;
+  border-color: #303532;
+}
+
+body.dark-theme .stat-card strong,
+body.dark-theme .nutrition-card strong {
+  color: #f0f2f1;
+}
+
+body.dark-theme .stat-card span,
+body.dark-theme .nutrition-card span {
+  color: #858b88;
+}
+
+
+/* =========================================================
+   NUTRITION NUMBERS
+   ========================================================= */
+
+body.dark-theme .calories,
+body.dark-theme .protein,
+body.dark-theme .carbs,
+body.dark-theme .fats {
+  color: #f0f2f1;
+}
+body.dark-theme .nutrition-value {
+  color: #ffffff;
+}
+
+/* =========================================================
+   PROGRESS TRACKS
+   ========================================================= */
+
+body.dark-theme .progress-bar,
+body.dark-theme .progress-track,
+body.dark-theme .progress-bg {
+  background: #292d2b;
+  border: none;
+}
+
+
+/* Keep existing semantic progress colors.
+   Only the dark track is changed. */
+
+body.dark-theme .progress-fill {
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   TODAY'S RHYTHM
+   ========================================================= */
+
+body.dark-theme .meal-card,
+body.dark-theme .rhythm-card {
+  background: #181a19;
+  border: 1px solid #272b29;
+  color: #f0f2f1;
+
+  box-shadow:
+    0 7px 22px rgba(0, 0, 0, 0.15);
+}
+
+body.dark-theme .meal-row {
+  background: transparent;
+  border-bottom: 1px solid #252927;
+}
+
+body.dark-theme .meal-row:last-child {
+  border-bottom: none;
+}
+
+body.dark-theme .meal-row strong {
+  color: #e9ecea;
+}
+
+body.dark-theme .meal-row span {
+  color: #858b88;
+
+  /* Space between calorie value and Logged status */
+  margin-left: 60px;
+}
+
+/* =========================================================
+   MEAL ICON BACKGROUNDS
+   ========================================================= */
+
+body.dark-theme .meal-icon,
+body.dark-theme .meal-icon-wrapper {
+  background: #202320;
+  border-color: #2a2e2c;
+}
+
+
+/* =========================================================
+   NUTRIWISE INSIGHT
+   ========================================================= */
+
+body.dark-theme .insight-card {
+  background:
+    linear-gradient(
+      135deg,
+      #1a211c 0%,
+      #181b19 55%,
+      #171918 100%
+    );
+
+  border: 1px solid #2a302c;
+  color: #f0f2f1;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.17);
+}
+
+body.dark-theme .insight-card h3,
+body.dark-theme .insight-card strong {
+  color: #f0f2f1;
+}
+
+body.dark-theme .insight-card p,
+body.dark-theme .insight-card span {
+  color: #929894;
+}
+
+
+/* =========================================================
+   INSIGHT DECORATIVE ELEMENTS
+   ========================================================= */
+
+body.dark-theme .insight-card::before,
+body.dark-theme .insight-card::after {
+  opacity: 0.18;
+}
+
+
+/* =========================================================
+   7-DAY RHYTHM / BOTTOM WELLNESS CARD
+   ========================================================= */
+
+body.dark-theme .wellness-card,
+body.dark-theme .bottom-wellness-card,
+body.dark-theme .seven-day-card,
+body.dark-theme .weekly-card {
+  background: #181a19;
+  border: 1px solid #272b29;
+  color: #f0f2f1;
+
+  box-shadow:
+    0 7px 22px rgba(0, 0, 0, 0.15);
+}
+
+body.dark-theme .wellness-card strong,
+body.dark-theme .bottom-wellness-card strong,
+body.dark-theme .seven-day-card strong,
+body.dark-theme .weekly-card strong {
+  color: #edf0ee;
+}
+
+body.dark-theme .wellness-card span,
+body.dark-theme .bottom-wellness-card span,
+body.dark-theme .seven-day-card span,
+body.dark-theme .weekly-card span {
+  color: #858b88;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+body.dark-theme .primary-button,
+body.dark-theme .btn-primary {
+  background: #65996e;
+  color: #ffffff;
+  border: 1px solid #65996e;
+
+  box-shadow: none;
+}
+
+body.dark-theme .primary-button:hover,
+body.dark-theme .btn-primary:hover {
+  background: #70a378;
+  border-color: #70a378;
+}
+
+body.dark-theme .secondary-button,
+body.dark-theme .btn-secondary {
+  background: #1b1e1c;
+  color: #c5cbc7;
+  border: 1px solid #2a2e2c;
+}
+
+body.dark-theme .secondary-button:hover,
+body.dark-theme .btn-secondary:hover {
+  background: #222624;
+  color: #e4e8e5;
+}
+
+
+/* =========================================================
+   FORM ELEMENTS
+   ========================================================= */
+
+body.dark-theme input,
+body.dark-theme select,
+body.dark-theme textarea {
+  background: #151817;
+  color: #e7ebe8;
+  /*border: 1px solid #292d2b;*/
+}
+
+body.dark-theme input::placeholder,
+body.dark-theme textarea::placeholder {
+  color: #676e6a;
+}
+
+body.dark-theme input:focus,
+body.dark-theme select:focus,
+body.dark-theme textarea:focus {
+  outline: none;
+  border-color: #527b5b;
+  box-shadow: 0 0 0 2px rgba(111, 163, 120, 0.07);
+}
+
+
+/* =========================================================
+   PREFERENCES
+   ========================================================= */
+
+body.dark-theme .preference-row {
+  border-bottom: 1px solid #252927;
+}
+
+body.dark-theme .preference-row strong {
+  color: #e7ebe8;
+}
+
+body.dark-theme .preference-row span {
+  color: #858b88;
+}
+
+
+/* =========================================================
+   TOGGLES
+   ========================================================= */
+
+body.dark-theme .toggle {
+  background: #292d2b;
+}
+
+body.dark-theme .toggle.active {
+  background: #65996e;
+}
+
+
+/* =========================================================
+   NOTIFICATION PANEL
+   ========================================================= */
+
+body.dark-theme .notification-panel {
+  background: #191c1a;
+  border: 1px solid #292d2b;
+
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.32);
+}
+
+body.dark-theme .notification-panel-header {
+  border-bottom: 1px solid #252927;
+}
+
+body.dark-theme .notification-panel-header strong {
+  color: #edf0ee;
+}
+
+body.dark-theme .notification-panel-header span {
+  color: #777e7a;
+}
+
+body.dark-theme .notification-item {
+  border-bottom: 1px solid #242826;
+}
+
+body.dark-theme .notification-item strong {
+  color: #e5e9e6;
+}
+
+body.dark-theme .notification-item span {
+  color: #858b88;
+}
+
+body.dark-theme .notification-icon {
+  background: #202921;
+  color: #79a781;
+}
+
+body.dark-theme .notification-close {
+  color: #858b88;
+}
+
+body.dark-theme .notification-close:hover {
+  background: #232725;
+  color: #dce1de;
+}
+
+body.dark-theme .notification-empty {
+  background: #151817;
+  color: #6f7672;
+}
+
+
+/* =========================================================
+   USER DROPDOWN
+   ========================================================= */
+
+body.dark-theme .user-dropdown {
+  background: #191c1a;
+  border: 1px solid #292d2b;
+
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.32);
+}
+
+body.dark-theme .user-dropdown button {
+  color: #c7cdc9;
+}
+
+body.dark-theme .user-dropdown button:hover {
+  background: #232725;
+  color: #edf0ee;
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+body.dark-theme a {
+  color: #79a781;
+}
+
+body.dark-theme a:hover {
+  color: #8bb991;
+}
+
+
+/* =========================================================
+   DIVIDERS
+   ========================================================= */
+
+body.dark-theme hr {
+  border: none;
+  border-top: 1px solid #242826;
+}
+
+
+/* =========================================================
+   AVATAR
+   ========================================================= */
+
+/* Preserve the existing warm avatar concept.
+   Only add a subtle dark-mode separation. */
+
+body.dark-theme .avatar {
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+
+/* =========================================================
+   PROFILE & GOALS — DARK THEME
+   ========================================================= */
+
+/* All goal options */
+body.dark-theme .goal-option {
+  background: #181a19;
+  border-color: #292d2b;
+  color: #e7ebe8;
+}
+
+/* Goal option text */
+body.dark-theme .goal-option strong {
+  color: #e7ebe8;
+}
+
+body.dark-theme .goal-option span {
+  color: #858b88;
+}
+
+/* Selected goal — same appearance for ALL goals */
+body.dark-theme .goal-option.selected {
+  background: #1a211c;
+  border-color: #6fa378;
+  color: #f0f2f1;
+}
+
+body.dark-theme .goal-option.selected strong {
+  color: #ffffff;
+}
+
+body.dark-theme .goal-option.selected span {
+  color: #aab5ad;
+}
+
+/* Selected goal icon */
+body.dark-theme .goal-option.selected .goal-option-icon {
+  background: #243127;
+  color: #79a781;
+}
+
+/* Check mark */
+body.dark-theme .goal-check {
+  background: #65996e;
+  color: #ffffff;
+}
+
+/* =========================================================
+   NUTRIWISE — DARK THEME LAYOUT FIX
+   ========================================================= */
+
+body.dark-theme {
+  background: #111312 !important;
+  color: #f0f2f1 !important;
+}
+
+body.dark-theme .app {
+  background: #111312 !important;
+}
+
+body.dark-theme .main-content {
+  background: #111312 !important;
+}
+
+body.dark-theme .page-content {
+  background: #111312 !important;
+}
+
+body.dark-theme .sidebar {
+  background: #0d0f0e !important;
+}
+
+body.dark-theme .header {
+  background: #0d0f0e !important;
+}
+
+/* =========================================================
+   NUTRIWISE — DARK MODE CRITICAL SURFACE FIX
+   ========================================================= */
+
+body.dark-theme .header {
+  background: #111512 !important;
+  border-bottom: 1px solid #252b28 !important;
+  color: #f1f5f2 !important;
+}
+
+body.dark-theme .header h1,
+body.dark-theme .header h2,
+body.dark-theme .header h3,
+body.dark-theme .header strong {
+  color: #f1f5f2 !important;
+}
+
+body.dark-theme .header p,
+body.dark-theme .header span {
+  color: #aab5af !important;
+}
+
+
+/* 7-DAY / WELLNESS SECTION */
+
+body.dark-theme .wellness-card,
+body.dark-theme .bottom-wellness-card,
+body.dark-theme .seven-day-card,
+body.dark-theme .weekly-card {
+  background: #181c1a !important;
+  border: 1px solid #29302c !important;
+  color: #f1f5f2 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12) !important;
+}
+
+body.dark-theme .wellness-card h3,
+body.dark-theme .bottom-wellness-card h3,
+body.dark-theme .seven-day-card h3,
+body.dark-theme .weekly-card h3 {
+  color: #e2eae5 !important;
+}
+
+body.dark-theme .wellness-card p,
+body.dark-theme .bottom-wellness-card p,
+body.dark-theme .seven-day-card p,
+body.dark-theme .weekly-card p {
+  color: #aab5af !important;
+}
+
+/* =========================================================
+   NUTRIWISE — DARK MODE CARD SURFACE HIERARCHY
+   ========================================================= */
+
+/* Main dashboard cards */
+body.dark-theme .card,
+body.dark-theme .dashboard-card,
+body.dark-theme .nutrition-card,
+body.dark-theme .metric-card,
+body.dark-theme .stat-card,
+body.dark-theme .activity-card,
+body.dark-theme .insight-card {
+  background: #181c1a !important;
+  border-color: #29302c !important;
+  color: #f1f5f2 !important;
+}
+
+/* Card headings */
+body.dark-theme .card h1,
+body.dark-theme .card h2,
+body.dark-theme .card h3,
+body.dark-theme .dashboard-card h1,
+body.dark-theme .dashboard-card h2,
+body.dark-theme .dashboard-card h3,
+body.dark-theme .nutrition-card h3,
+body.dark-theme .metric-card h3,
+body.dark-theme .stat-card h3 {
+  color: #f1f5f2 !important;
+}
+
+/* Normal card text */
+body.dark-theme .card p,
+body.dark-theme .dashboard-card p,
+body.dark-theme .nutrition-card p,
+body.dark-theme .metric-card p,
+body.dark-theme .stat-card p {
+  color: #aab5af !important;
+}
+
+/* Subtle internal dividers */
+body.dark-theme .card hr,
+body.dark-theme .dashboard-card hr {
+  border-color: #222824 !important;
+}
+
+/* Reduce harsh shadows in dark mode */
+body.dark-theme .card,
+body.dark-theme .dashboard-card,
+body.dark-theme .nutrition-card,
+body.dark-theme .metric-card,
+body.dark-theme .stat-card,
+body.dark-theme .activity-card,
+body.dark-theme .insight-card {
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.10) !important;
+}
+
+/* =========================================================
+   DARK MODE — 7-DAY RHYTHM
+   ========================================================= */
+
+body.dark-theme .streak-banner {
+  background: #181c1a !important;
+  border: 1px solid #29302c !important;
+  color: #f1f5f2 !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12) !important;
+}
+
+body.dark-theme .streak-banner strong {
+  color: #f1f5f2 !important;
+}
+
+body.dark-theme .streak-banner span {
+  color: #aab5af !important;
+}
+
+body.dark-theme .streak-icon {
+  background: #193022 !important;
+  color: #75b982 !important;
+}
+
+body.dark-theme .streak-day {
+  background: #151917 !important;
+  border-color: #29302c !important;
+  color: #7d8982 !important;
+}
+
+body.dark-theme .streak-day.done {
+  background: #193022 !important;
+  border-color: #31543a !important;
+  color: #75b982 !important;
+}
+
+body.dark-theme .streak-day.today {
+  background: #6faf7a !important;
+  border-color: #6faf7a !important;
+  color: #101511 !important;
+}
+
+/* =========================================================
+   DARK MODE — TOP HEADER
+   ========================================================= */
+
+body.dark-theme .top-header {
+  background: #0d0f0e !important;
+  border-bottom: 1px solid #252b28 !important;
+}
+
+/* Greeting / page title */
+body.dark-theme .top-header h1 {
+  color: #f1f5f2 !important;
+}
+
+/* Small text above the greeting */
+body.dark-theme .top-header .header-eyebrow {
+  color: #75b982 !important;
+}
+
+/* Theme button */
+body.dark-theme .top-header .theme-button {
+  background: #181c1a !important;
+  border-color: #29302c !important;
+  color: #f1f5f2 !important;
+}
+
+/* Notification button */
+body.dark-theme .top-header .notification-button {
+  background: #181c1a !important;
+  border-color: #29302c !important;
+  color: #dce5df !important;
+}
+
+/* User menu */
+body.dark-theme .top-header .user-menu {
+  background: transparent !important;
+  color: #f1f5f2 !important;
+}
+
+body.dark-theme .top-header .user-info strong {
+  color: #f1f5f2 !important;
+}
+
+body.dark-theme .top-header .user-info span {
+  color: #7d8982 !important;
+}
+
+body.dark-theme .top-header .user-menu svg {
+  color: #7d8982 !important;
+}
+
+/* Avatar */
+body.dark-theme .top-header .avatar {
+  background: #193022 !important;
+  color: #75b982 !important;
+}
+
+body.dark-theme .history-summary-icon.green {
+  background: #ffffff !important;
+  color: #181c1a !important;
+}
+
+/* Profile & Goals — Current Plan */
+
+body.dark-theme .plan-stat {
+  background: #252b28 !important;
+}
+
+body.dark-theme .plan-stats {
+  background: #252b28 !important;
+  border-color: #252b28 !important;
+}
+
+body.dark-theme .plan-message {
+  background: #252b28 !important;
+}
+
+body.dark-theme .plan-badge {
+  background: #252b28 !important;
+}
+
+/* =========================================================
+   NUTRIWISE — ANALYZE FOOD DARK MODE
+   ========================================================= */
+
+/* Main analysis card */
+body.dark-theme .analyze-card {
+  background: #161919 !important;
+  border-color: #2d3232 !important;
+}
+
+/* Upload area */
+body.dark-theme .upload-area {
+  background: #161919 !important;
+  border: 1px dashed #2d3232 !important;
+  color: #b3b9b9 !important;
+}
+
+/* Upload text */
+body.dark-theme .upload-area h3 {
+  color: #e1e5e3 !important;
+}
+
+body.dark-theme .upload-area p {
+  color: #7c8383 !important;
+}
+
+/* Camera icon */
+body.dark-theme .upload-icon {
+  background: #2a4b35 !important;
+  color: #539f68 !important;
+}
+
+/* Stepper */
+body.dark-theme .analysis-step .step-number {
+  background: #1e2222 !important;
+  border: 1px solid #2e3434 !important;
+  color: #7c8383 !important;
+}
+
+/* Active step remains green */
+body.dark-theme .analysis-step.active .step-number {
+  background: #4fa86c !important;
+  border-color: #4fa86c !important;
+  color: #101511 !important;
+}
+
+/* Step text */
+body.dark-theme .analysis-step {
+  color: #7c8383 !important;
+}
+
+body.dark-theme .analysis-step.active {
+  color: #b3b9b9 !important;
+}
+
+/* Lines between steps */
+body.dark-theme .step-line {
+  background: #2e3434 !important;
+}
+
+/* OR divider */
+body.dark-theme .or-divider {
+  color: #ffffff !important;
+}
+
+body.dark-theme .or-divider::before,
+body.dark-theme .or-divider::after {
+  background: #2e3434 !important;
+}
+
+/* Search input */
+body.dark-theme .food-search {
+  background: #1c1f1f !important;
+  border: 1px solid #2f3535 !important;
+  color: #7c8383 !important;
+}
+
+body.dark-theme .food-search svg {
+  color: #7c8383 !important;
+}
+
+body.dark-theme .food-search input {
+  background: transparent !important;
+  color: #cccccc !important;
+}
+
+body.dark-theme .food-search input::placeholder {
+  color: #7c8383 !important;
+}
+
+/* Suggestion labels */
+body.dark-theme .suggestion-label {
+  color: #596a5f !important;
+}
+
+/* Suggestion chips */
+body.dark-theme .suggestion-chip {
+  background: #1e2121 !important;
+  border: 1px solid #2c3131 !important;
+  color: #cccccc !important;
+}
+
+body.dark-theme .suggestion-chip:hover {
+  background: #252b28 !important;
+  border-color: #3a443f !important;
+  color: #e1e5e3 !important;
+}
+
+/* Privacy note */
+body.dark-theme .privacy-note {
+  color: #596a5f !important;
+}
+
+body.dark-theme .privacy-note svg {
+  color: #4aa06c !important;
+}
+
+/* Secondary button inside upload area */
+body.dark-theme .upload-area .btn-secondary {
+  background: #1e2222 !important;
+  border-color: #2e3434 !important;
+  color: #b3b9b9 !important;
+}
+
+body.dark-theme .upload-area .btn-secondary:hover {
+  background: #252b28 !important;
+  border-color: #3a443f !important;
+}
+
+.photo-upload-side {
+  background: transparent !important;
+}
+
+/* Insight card height — Light + Dark Mode */
+.insight-card {
+  min-height: 83% !important;
+}
+
+.analyze-card {
+   border-color: #2e9866 !important;
+}
+
+/* Notification panel actions */
+.notification-panel-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.notification-mark-read {
+  border: none;
+  background: transparent;
+  color: #4d9364;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 7px;
+  border-radius: 7px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.notification-mark-read:hover {
+  background: #f1f7f2;
+  color: #245c3a;
+}
+
+/* Dark mode */
+body.dark-theme .notification-mark-read {
+  color: #6fa378;
+}
+
+body.dark-theme .notification-mark-read:hover {
+  background: #202421;
+  color: #8fc398;
+}
+
+/* Healthier Alternative */
+.healthier-alternative-box {
+  margin-top: 18px;
+  padding: 18px 20px;
+  border: 1px solid #cfe8d5;
+  border-radius: 16px;
+  background: #f4fbf5;
+}
+
+.healthier-alternative-box .suggestion-label {
+  margin: 0 0 5px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #4f8a5b;
+}
+
+.healthier-alternative-box h4 {
+  margin: 0;
+  font-size: 18px;
+  color: #1f5130;
+}
+
+.healthier-alternative-box > p:last-child {
+  margin: 8px 0 0;
+  font-size: 14px;
+  color: #5d6b61;
+}
+
+/* =========================================
+   ANALYZE FOOD - RESULT & INPUT STYLES
+   ========================================= */
+
+.food-search-section {
+  margin-top: 24px;
+}
+
+.food-search-section input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.food-search-results {
+  margin-top: 10px;
+}
+
+.food-search-result {
+  padding: 14px 16px;
+  border: 1px solid #e2e8e4;
+  border-radius: 12px;
+  background: #ffffff;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.food-search-result:hover {
+  border-color: #8bc79a;
+  background: #f7fcf8;
+}
+
+/* Selected food card */
+.selected-food-box {
+  margin-top: 24px;
+  padding: 24px;
+  border: 1px solid #dfe9e2;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(31, 81, 48, 0.06);
+}
+
+/* Food name + AI confidence */
+.selected-food-box h3 {
+  margin: 0;
+  font-size: 22px;
+  color: #1f2933;
+}
+
+.selected-food-box small {
+  display: block;
+  margin-top: 5px;
+  color: #6b7b70;
+  font-size: 12px;
+}
+
+/* Nutrition grid */
+.selected-food-nutrition {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.selected-food-nutrition > div {
+  padding: 14px 10px;
+  border-radius: 14px;
+  background: #f7faf8;
+  text-align: center;
+}
+
+.selected-food-nutrition strong {
+  display: block;
+  font-size: 18px;
+  color: #1f5130;
+}
+
+.selected-food-nutrition span {
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+  color: #718078;
+}
+
+/* Quantity + meal section */
+.food-log-options {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #edf1ee;
+}
+
+.food-log-options > div {
+  flex: 1;
+}
+
+.food-log-options label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #435148;
+}
+
+.food-log-options input,
+.food-log-options select {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #d8e2db;
+  border-radius: 10px;
+  background: #ffffff;
+  font-size: 14px;
+  color: #26352c;
+  outline: none;
+}
+
+.food-log-options input:focus,
+.food-log-options select:focus {
+  border-color: #79b887;
+  box-shadow: 0 0 0 3px rgba(121, 184, 135, 0.12);
+}
+
+/* Goal Fit */
+.goal-fit-box {
+  margin-top: 18px;
+  padding: 18px 20px;
+  border: 1px solid #d8e9dc;
+  border-radius: 16px;
+  background: #f7fbf8;
+}
+
+.goal-fit-box .suggestion-label {
+  margin: 0 0 5px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #4f8a5b;
+}
+
+.goal-fit-box h4 {
+  margin: 0;
+  font-size: 18px;
+  color: #1f5130;
+}
+
+.goal-fit-box > p:last-child {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #5d6b61;
+}
+
+/* Mobile / smaller screens */
+@media (max-width: 800px) {
+  .selected-food-nutrition {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .food-log-options {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 500px) {
+  .selected-food-nutrition {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .selected-food-box {
+    padding: 18px;
+  }
+}
+
+/* =========================================
+   ANALYZE FOOD - NUTRITION & LOG ALIGNMENT
+   ========================================= */
+
+.selected-food-nutrition > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 72px;
+}
+
+.selected-food-nutrition strong {
+  margin: 0;
+  line-height: 1.2;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.selected-food-nutrition span {
+  margin-top: 6px;
+  line-height: 1.2;
+  font-size: 12px;
+}
+
+/* Quantity + Meal alignment */
+.food-log-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  gap: 18px;
+}
+
+.food-log-options > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.food-log-options label {
+  height: 20px;
+  margin-bottom: 8px;
+  line-height: 20px;
+}
+
+/* Make both controls exactly the same height */
+.food-log-options input,
+.food-log-options select {
+  width: 100%;
+  height: 44px;
+  min-height: 44px;
+  box-sizing: border-box;
+  padding: 10px 12px;
+}
+
+/* Quantity field wrapper */
+.quantity-input-wrapper {
+  position: relative;
+}
+
+.quantity-input-wrapper input {
+  padding-right: 32px;
+}
+
+.quantity-input-wrapper .quantity-unit {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #718078;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+/* =========================================
+   FOOD SEARCH RESULTS
+   ========================================= */
+
+.food-search-results {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+  width: 100%;
+}
+
+.food-result-item {
+  width: 100%;
+  min-height: 82px;
+  padding: 16px 18px;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  border: 1px solid #d5e2d8;
+  border-radius: 16px;
+
+  background: #ffffff;
+  color: #26352c;
+
+  text-align: left;
+  cursor: pointer;
+
+  box-shadow: 0 4px 12px rgba(31, 81, 48, 0.06);
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.food-result-item:hover {
+  border-color: #72b481;
+  background: #f7fcf8;
+  box-shadow: 0 8px 20px rgba(31, 81, 48, 0.11);
+  transform: translateY(-2px);
+}
+
+/* Food name + serving */
+.food-result-item > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  min-width: 0;
+}
+
+.food-result-item strong {
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.3;
+  color: #26352c;
+  text-align: left;
+}
+
+.food-result-item > div span {
+  font-size: 12px;
+  color: #748078;
+  text-align: left;
+}
+
+/* Calories */
+.food-result-item > span {
+  flex-shrink: 0;
+  font-size: 13px;
+  font-weight: 650;
+  color: #397148;
+  white-space: nowrap;
+}
+
+/* Smaller screens */
+@media (max-width: 700px) {
+  .food-search-results {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================
+   TODAY'S RHYTHM - MEAL ROW
+   ========================================= */
+
+.meal-row {
+  display: grid;
+  grid-template-columns: 42px minmax(150px, 1fr) auto auto;
+  align-items: center;
+  column-gap: 14px;
+  min-height: 72px;
+  padding: 14px 16px;
+  border-bottom: 1px solid #edf1ee;
+}
+
+.meal-row:last-child {
+  border-bottom: none;
+}
+
+/* Meal icon */
+.meal-row .meal-icon {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+/* Meal name + description */
+.meal-row .meal-info {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.meal-row .meal-info strong {
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.25;
+  color: #26352c;
+}
+
+.meal-row .meal-info span {
+  font-size: 12px;
+  line-height: 1.3;
+  color: #7a877e;
+}
+
+/* Calories */
+.meal-row .meal-calories {
+  min-width: 78px;
+  text-align: right;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 650;
+  color: #303b34;
+}
+
+/* Logged status */
+.meal-row .meal-status {
+  min-width: 62px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 650;
+  color: #4f8a5b;
+}
+
+/* Add button */
+.meal-row .meal-action {
+  min-width: 78px;
+  height: 38px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  border: 1px solid #d5e2d8;
+  border-radius: 10px;
+  background: #ffffff;
+
+  color: #397148;
+  font-size: 13px;
+  font-weight: 650;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.meal-row .meal-action:hover {
+  border-color: #79b887;
+  background: #f5fbf6;
+  transform: translateY(-1px);
+}
+
+/* Smaller screens */
+@media (max-width: 650px) {
+  .meal-row {
+    grid-template-columns: 40px minmax(0, 1fr) auto;
+    column-gap: 10px;
+  }
+
+  .meal-row .meal-status {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .meal-row .meal-calories {
+    grid-column: 2;
+    grid-row: 2;
+    text-align: left;
+    margin-top: 3px;
+  }
+
+  .meal-row .meal-action {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+  }
+}
+
+/* =========================================
+   FOOD HISTORY - DATE HEADING SPACING
+   ========================================= */
+
+.history-date-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.history-date-heading strong {
+  white-space: nowrap;
+}
+
+.history-date-heading span {
+  white-space: nowrap;
+}
+
+/* =========================================
+   ANALYZE FOOD - ANALYSIS STEPS
+   ========================================= */
+
+.analysis-steps {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 24px 0 28px;
+  padding: 0 4px;
+  box-sizing: border-box;
+}
+
+.analysis-step {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-shrink: 0;
+  color: #8a958e;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.analysis-step.active {
+  color: #2f7042;
+}
+
+.step-number {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid #d6e1d9;
+  background: #ffffff;
+  color: #7b887f;
+  font-size: 12px;
+  font-weight: 700;
+  box-sizing: border-box;
+}
+
+.analysis-step.active .step-number {
+  border-color: #65a875;
+  background: #eaf6ed;
+  color: #2f7042;
+}
+
+.step-line {
+  flex: 1;
+  height: 1px;
+  margin: 0 14px;
+  background: #dfe7e1;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .analysis-steps {
+    overflow-x: auto;
+    padding-bottom: 6px;
+  }
+
+  .step-line {
+    min-width: 24px;
+    margin: 0 8px;
+  }
+}
+
+.step-number {
+  width: 30px !important;
+  min-width: 30px !important;
+  height: 30px !important;
+  min-height: 30px !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  box-sizing: border-box !important;
+  flex-shrink: 0;
+
+  border: 1px solid #d6e1d9 !important;
+  border-radius: 50% !important;
+
+  background: #ffffff !important;
+  color: #7b887f !important;
+
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  text-align: center;
+}
+
+.analysis-step.active .step-number {
+  border-color: #65a875 !important;
+  background: #eaf6ed !important;
+  color: #2f7042 !important;
+}
+
+/* =========================================
+   ANALYZE FOOD - SELECTED FOOD HEADER
+   ========================================= */
+
+.selected-food-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #edf1ee;
+}
+
+.selected-food-header > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  gap: 3px;
+}
+
+.selected-food-header > div:last-child > span {
+  font-size: 14px;
+  font-weight: 650;
+  color: #397148;
+  white-space: nowrap;
+}
+
+.selected-food-header .suggestion-label {
+  margin: 0 0 5px;
+}
+
+@media (max-width: 600px) {
+  .selected-food-header {
+    flex-direction: column;
+  }
+
+  .selected-food-header > div:last-child {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+/* =========================================
+   ANALYZE FOOD - NUTRITION PANEL
+   ========================================= */
+
+.selected-food-nutrition {
+  margin-top: 20px;
+  padding: 4px 0;
+}
+
+.selected-food-nutrition > div {
+  border: 1px solid #e5ece7;
+  background: #fbfdfb;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.selected-food-nutrition > div:hover {
+  border-color: #b9d8c0;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(31, 81, 48, 0.07);
+}
+
+.selected-food-nutrition strong {
+  color: #245f35;
+}
+
+.selected-food-nutrition span {
+  color: #758279;
+}
+
+/* =========================================
+   ANALYZE FOOD - GOAL FIT
+   ========================================= */
+
+.goal-fit-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 20px;
+  padding: 18px 20px;
+  border: 1px solid #d5e7d9;
+  border-radius: 16px;
+  background: #f7fbf8;
+}
+
+.goal-fit-box > div {
+  min-width: 150px;
+}
+
+.goal-fit-box .suggestion-label {
+  margin: 0 0 5px;
+}
+
+.goal-fit-box h4 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.3;
+  color: #2f7042;
+}
+
+.goal-fit-box > p {
+  flex: 1;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #5d6b61;
+}
+
+@media (max-width: 650px) {
+  .goal-fit-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .goal-fit-box > div {
+    min-width: 0;
+  }
+}
+
+/* =========================================
+   DARK THEME - ANALYZE FOOD ONLY
+   ========================================= */
+
+/* Selected food result box */
+.dark-theme .selected-food-box {
+  background: #18221c;
+  border-color: #2d3d32;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.dark-theme .selected-food-box h3 {
+  color: #eef7f0;
+}
+
+.dark-theme .selected-food-box small {
+  color: #9aaa9f;
+}
+
+.dark-theme .selected-food-header {
+  border-bottom-color: #2b382f;
+}
+
+.dark-theme .selected-food-header > div:last-child > span {
+  color: #8dcc9a;
+}
+
+
+/* Nutrition boxes inside selected food */
+.dark-theme .selected-food-nutrition > div {
+  background: #202b24;
+  border-color: #304036;
+}
+
+.dark-theme .selected-food-nutrition > div:hover {
+  background: #253229;
+  border-color: #4d7658;
+}
+
+.dark-theme .selected-food-nutrition strong {
+  color: #9bddaa;
+}
+
+.dark-theme .selected-food-nutrition span {
+  color: #9aaa9f;
+}
+
+
+/* Goal Fit */
+.dark-theme .goal-fit-box {
+  background: #1b2a20;
+  border-color: #35523d;
+}
+
+.dark-theme .goal-fit-box h4 {
+  color: #9bddaa;
+}
+
+.dark-theme .goal-fit-box > p {
+  color: #aab8ae;
+}
+
+
+/* Healthier Alternative */
+.dark-theme .healthier-alternative-box {
+  background: #1b2a20;
+  border-color: #35523d;
+}
+
+.dark-theme .healthier-alternative-box h4 {
+  color: #9bddaa;
+}
+
+.dark-theme .healthier-alternative-box > p {
+  color: #aab8ae;
+}
+
+
+/* Quantity + Meal */
+.dark-theme .food-log-options {
+  border-top-color: #2b382f;
+}
+
+.dark-theme .food-log-options label {
+  color: #aab8ae;
+}
+
+.dark-theme .food-log-options input,
+.dark-theme .food-log-options select {
+  background: #202b24;
+  border-color: #35443a;
+  color: #eef7f0;
+}
+
+.dark-theme .food-log-options input:focus,
+.dark-theme .food-log-options select:focus {
+  border-color: #69a879;
+  box-shadow: 0 0 0 3px rgba(105, 168, 121, 0.15);
+}
+
+.dark-theme .quantity-input-wrapper .quantity-unit {
+  color: #9aaa9f;
+}
+
+
+/* =========================================
+   SEARCH RESULT DISH BOXES
+   When typing food name
+   ========================================= */
+
+.dark-theme .food-search-results {
+  background: transparent;
+}
+
+.dark-theme .food-result-item {
+  background: #18221c;
+  border-color: #304036;
+  color: #eef7f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+.dark-theme .food-result-item:hover {
+  background: #202e25;
+  border-color: #5a8b65;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.dark-theme .food-result-item strong {
+  color: #eef7f0;
+}
+
+.dark-theme .food-result-item > div span {
+  color: #9aaa9f;
+}
+
+.dark-theme .food-result-item > span {
+  color: #8dcc9a;
+}

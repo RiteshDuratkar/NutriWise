@@ -1,8 +1,14 @@
-from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI, Depends, HTTPException, File, UploadFile
+from database.database import SessionLocal
+
+# AI model imports
+from transformers import pipeline
+from PIL import Image
+
 
 from database.database import Base, engine
-
+from fastapi import File, UploadFile
 from models.user import User
 from models.profile import Profile
 from models.goal import Goal
@@ -19,6 +25,7 @@ from routers.goal import router as goal_router
 from routers.meal_plan import router as meal_plan_router
 from routers.water_intake import router as water_intake_router
 
+
 Base.metadata.create_all(bind=engine)
 
 
@@ -34,6 +41,20 @@ app.add_middleware(
 )
 
 
+# ============================================================
+# AI FOOD RECOGNITION MODEL
+# ============================================================
+
+print("Loading food recognition AI model...")
+
+food_classifier = pipeline(
+    "image-classification",
+    model="nateraw/food",
+)
+
+print("Food recognition AI model loaded successfully!")
+
+
 app.include_router(user_router)
 app.include_router(auth_router)
 app.include_router(food_router)
@@ -42,6 +63,76 @@ app.include_router(goal_router)
 app.include_router(meal_plan_router)
 app.include_router(water_intake_router)
 
+
 @app.get("/")
 def home():
     return {"message": "NutriWise Backend is running!"}
+
+@app.post("/ai/analyze-food")
+async def analyze_food_image(file: UploadFile = File(...)):
+    db = SessionLocal()
+
+    try:
+        # Read uploaded image
+        image_bytes = await file.read()
+
+        # Open image using PIL
+        from io import BytesIO
+
+        image = Image.open(BytesIO(image_bytes)).convert("RGB")
+
+        # Run AI food recognition
+        results = food_classifier(image)
+
+        # Get top prediction
+        top_result = results[0]
+
+        detected_food = top_result["label"]
+        confidence = top_result["score"]
+
+        # Search nutrition database for detected food
+        food = (
+            db.query(Food)
+            .filter(Food.name.ilike(detected_food))
+            .first()
+        )
+
+        return {
+            "success": True,
+            "food": detected_food,
+            "confidence": round(confidence, 4),
+
+            "nutrition": (
+                {
+                    "id": food.id,
+                    "name": food.name,
+                    "category": food.category,
+                    "serving_size": food.serving_size,
+                    "serving_unit": food.serving_unit,
+                    "calories": food.calories,
+                    "protein": food.protein,
+                    "carbohydrates": food.carbohydrates,
+                    "fat": food.fat,
+                    "sugar": food.sugar,
+                    "fiber": food.fiber,
+                }
+                if food else None
+            ),
+
+            "predictions": [
+                {
+                    "food": result["label"],
+                    "confidence": round(result["score"], 4)
+                }
+                for result in results[:5]
+            ]
+        }
+
+    except Exception as e:
+        return {
+            "success": False,
+            "error": str(e)
+        }
+
+    finally:
+        db.close()

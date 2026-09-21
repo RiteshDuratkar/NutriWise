@@ -50,6 +50,7 @@ def add_food_history(
         food_id=food.id,
         quantity=history.quantity,
         meal_type=history.meal_type,
+        consumed_at=datetime.now(),
 
         calories=(
             food.calories * multiplier
@@ -82,7 +83,6 @@ def add_food_history(
 
     return new_history
 
-
 @router.get(
     "/",
     response_model=list[FoodHistoryResponse]
@@ -92,13 +92,39 @@ def get_food_history(
     current_user: User = Depends(get_current_user)
 ):
     history = (
-        db.query(FoodHistory)
-        .filter(FoodHistory.user_id == current_user.id)
+        db.query(FoodHistory, Food)
+        .join(
+            Food,
+            Food.id == FoodHistory.food_id
+        )
+        .filter(
+            FoodHistory.user_id == current_user.id
+        )
         .all()
     )
 
-    return history
+    response = []
 
+    for item, food in history:
+        response.append(
+            {
+                "id": item.id,
+                "user_id": item.user_id,
+                "food_id": item.food_id,
+                "food_name": food.name,
+                "quantity": item.quantity,
+                "meal_type": item.meal_type,
+                "calories": item.calories,
+                "protein": item.protein,
+                "carbohydrates": item.carbohydrates,
+                "fat": item.fat,
+                "recommendation": item.recommendation,
+                "compatibility_score": item.compatibility_score,
+                "consumed_at": item.consumed_at
+            }
+        )
+
+    return response
 
 @router.get(
     "/daily-summary"
