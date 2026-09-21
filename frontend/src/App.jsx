@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+const API_URL =
+  import.meta.env.VITE_API_URL || "${API_URL}";
 import "./App.css";
 import {
   Leaf,
@@ -158,7 +160,7 @@ function CreateAccountPage({ onBackToLogin }) {
 
   try {
     const userResponse = await fetch(
-      "http://127.0.0.1:8000/users/",
+      "${API_URL}/users/",
       {
         method: "POST",
         headers: {
@@ -180,7 +182,7 @@ function CreateAccountPage({ onBackToLogin }) {
     }
 
     const profileResponse = await fetch(
-      `http://127.0.0.1:8000/users/${userData.id}/profile`,
+      `${API_URL}/users/${userData.id}/profile`,
       {
         method: "POST",
         headers: {
@@ -842,7 +844,7 @@ const getGoalFit = (nutrition) => {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/foods/"
+        "${API_URL}/foods/"
       );
 
       if (!response.ok) {
@@ -912,7 +914,7 @@ const getGoalFit = (nutrition) => {
       const token = localStorage.getItem("access_token");
 
       fetch(
-        `http://127.0.0.1:8000/foods/search?name=${encodeURIComponent(
+        `${API_URL}/foods/search?name=${encodeURIComponent(
           description
         )}`,
         {
@@ -1043,7 +1045,7 @@ const getGoalFit = (nutrition) => {
   try {
     setAiAnalyzing(true);
     const response = await fetch(
-      "http://127.0.0.1:8000/ai/analyze-food",
+      "${API_URL}/ai/analyze-food",
       {
         method: "POST",
         headers: {
@@ -1333,7 +1335,7 @@ setHealthierFood(recommendation);
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/food-history/",
+        "${API_URL}/food-history/",
         {
           method: "POST",
           headers: {
@@ -2065,7 +2067,7 @@ function ProfileGoalsPage({ profile, onProfileUpdated }) {
       const token = localStorage.getItem("access_token");
 
       const userResponse = await fetch(
-        "http://127.0.0.1:8000/auth/me",
+        "${API_URL}/auth/me",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -2080,7 +2082,7 @@ function ProfileGoalsPage({ profile, onProfileUpdated }) {
       const user = await userResponse.json();
 
       const response = await fetch(
-        `http://127.0.0.1:8000/users/${user.id}/profile`,
+        `${API_URL}/users/${user.id}/profile`,
         {
           method: "PUT",
           headers: {
@@ -2112,7 +2114,7 @@ function ProfileGoalsPage({ profile, onProfileUpdated }) {
 await onProfileUpdated();
 
 const goalResponse = await fetch(
-  "http://127.0.0.1:8000/goals/",
+  "${API_URL}/goals/",
   {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -2124,7 +2126,7 @@ if (goalResponse.ok) {
   const updatedGoalData = await goalResponse.json();
 
   const calorieResponse = await fetch(
-    "http://127.0.0.1:8000/goals/calorie-calculation",
+    "${API_URL}/goals/calorie-calculation",
     {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -2133,7 +2135,7 @@ if (goalResponse.ok) {
   );
 
   const proteinResponse = await fetch(
-    "http://127.0.0.1:8000/goals/protein-calculation",
+    "${API_URL}/goals/protein-calculation",
     {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -2167,7 +2169,7 @@ setIsEditingProfile(false);
     const token = localStorage.getItem("access_token");
 
     const userResponse = await fetch(
-      "http://127.0.0.1:8000/auth/me",
+      "${API_URL}/auth/me",
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -2182,7 +2184,7 @@ setIsEditingProfile(false);
     const user = await userResponse.json();
 
     const profileResponse = await fetch(
-      `http://127.0.0.1:8000/users/${user.id}/profile`,
+      `${API_URL}/users/${user.id}/profile`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -2207,7 +2209,7 @@ setIsEditingProfile(false);
     }
 
     const updateResponse = await fetch(
-      `http://127.0.0.1:8000/users/${user.id}/profile`,
+      `${API_URL}/users/${user.id}/profile`,
       {
         method: "PUT",
         headers: {
@@ -2238,7 +2240,7 @@ setIsEditingProfile(false);
 
 // Refresh goal data after updating the backend
 const goalResponse = await fetch(
-  "http://127.0.0.1:8000/goals/",
+  "${API_URL}/goals/",
   {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -2250,7 +2252,7 @@ if (goalResponse.ok) {
   const updatedGoalData = await goalResponse.json();
 
   const calorieResponse = await fetch(
-    "http://127.0.0.1:8000/goals/calorie-calculation",
+    "${API_URL}/goals/calorie-calculation",
     {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -2265,7 +2267,7 @@ if (goalResponse.ok) {
   }
 
   const proteinResponse = await fetch(
-    "http://127.0.0.1:8000/goals/protein-calculation",
+    "${API_URL}/goals/protein-calculation",
     {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -2300,7 +2302,7 @@ console.log("Goal updated successfully:", backendGoal);
       try {
         const token = localStorage.getItem("access_token");
 
-        const response = await fetch("http://127.0.0.1:8000/goals/", {
+        const response = await fetch("${API_URL}/goals/", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -2314,7 +2316,7 @@ console.log("Goal updated successfully:", backendGoal);
 
         setGoalData(data);
         const calorieResponse = await fetch(
-  "http://127.0.0.1:8000/goals/calorie-calculation",
+  "${API_URL}/goals/calorie-calculation",
   {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -2332,7 +2334,7 @@ if (calorieResponse.ok) {
 }
 
 const proteinResponse = await fetch(
-  "http://127.0.0.1:8000/goals/protein-calculation",
+  "${API_URL}/goals/protein-calculation",
   {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -2986,7 +2988,7 @@ const fetchProfile = async () => {
     const token = localStorage.getItem("access_token");
 
     const userResponse = await fetch(
-      "http://127.0.0.1:8000/auth/me",
+      "${API_URL}/auth/me",
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -3003,7 +3005,7 @@ const fetchProfile = async () => {
     console.log("Current user:", userData);
 
     const profileResponse = await fetch(
-      `http://127.0.0.1:8000/users/${userData.id}/profile`,
+      `${API_URL}/users/${userData.id}/profile`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -3040,7 +3042,7 @@ useEffect(() => {
   const token = localStorage.getItem("access_token");
 
   fetch(
-    "http://127.0.0.1:8000/food-history/daily-summary",
+    "${API_URL}/food-history/daily-summary",
     {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -3071,7 +3073,7 @@ const refreshFoodData = async () => {
 
   try {
     const historyResponse = await fetch(
-      "http://127.0.0.1:8000/food-history/",
+      "${API_URL}/food-history/",
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -3083,7 +3085,7 @@ const refreshFoodData = async () => {
     setFoodHistory(historyData);
 
     const summaryResponse = await fetch(
-      "http://127.0.0.1:8000/food-history/daily-summary",
+      "${API_URL}/food-history/daily-summary",
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -3107,7 +3109,7 @@ useEffect(() => {
   const token = localStorage.getItem("access_token");
 
   fetch(
-    "http://127.0.0.1:8000/food-history/",
+    "${API_URL}/food-history/",
     {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -3141,7 +3143,7 @@ useEffect(() => {
     formData.append("password", credentials.password);
 
     const response = await fetch(
-      "http://127.0.0.1:8000/auth/login",
+      "${API_URL}/auth/login",
       {
         method: "POST",
         headers: {

@@ -36,30 +36,20 @@ def get_current_user(
     )
 
     try:
-        print("DEBUG TOKEN RECEIVED:", token[:20] + "...")
-        print("DEBUG SECRET KEY:", SECRET_KEY)
-        print("DEBUG ALGORITHM:", ALGORITHM)
-
         payload = jwt.decode(
             token,
             SECRET_KEY,
             algorithms=[ALGORITHM]
         )
 
-        print("DEBUG JWT PAYLOAD:", payload)
-
         user_id = payload.get("sub")
 
         if user_id is None:
-            print("DEBUG ERROR: sub is missing")
             raise credentials_exception
 
         user_id = int(user_id)
 
-        print("DEBUG USER ID:", user_id)
-
-    except (JWTError, ValueError) as e:
-        print("DEBUG JWT ERROR:", repr(e))
+    except (JWTError, ValueError):
         raise credentials_exception
 
     user = (

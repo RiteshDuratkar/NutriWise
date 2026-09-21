@@ -1,14 +1,26 @@
+import os
 from datetime import datetime, timedelta, timezone
 
 from jose import jwt
 from passlib.context import CryptContext
 
 
-SECRET_KEY = "nutriwise-development-secret-key-change-later"
+SECRET_KEY = os.getenv(
+    "SECRET_KEY",
+    "nutriwise-local-development-secret"
+)
 
-ALGORITHM = "HS256"
+ALGORITHM = os.getenv(
+    "ALGORITHM",
+    "HS256"
+)
 
-ACCESS_TOKEN_EXPIRE_MINUTES = 60
+ACCESS_TOKEN_EXPIRE_MINUTES = int(
+    os.getenv(
+        "ACCESS_TOKEN_EXPIRE_MINUTES",
+        "60"
+    )
+)
 
 
 pwd_context = CryptContext(

@@ -1,14 +1,20 @@
+import os
+
+from dotenv import load_dotenv
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI, Depends, HTTPException, File, UploadFile
+
+# Load environment variables from .env
+load_dotenv()
 from database.database import SessionLocal
+
+
 
 # AI model imports
 from transformers import pipeline
 from PIL import Image
 
-
 from database.database import Base, engine
-from fastapi import File, UploadFile
 from models.user import User
 from models.profile import Profile
 from models.goal import Goal
@@ -32,9 +38,26 @@ Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
 
+# ============================================================
+# CORS CONFIGURATION
+# ============================================================
+
+frontend_url = os.getenv(
+    "FRONTEND_URL",
+    "http://localhost:5173"
+)
+
+allowed_origins = [
+    "http://localhost:5173"
+]
+
+if frontend_url and frontend_url not in allowed_origins:
+    allowed_origins.append(frontend_url)
+
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
